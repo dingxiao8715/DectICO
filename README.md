@@ -25,9 +25,9 @@ In this step, we provide a perl script to calculate the feature vectors for the 
 >perl integrate_sample_feature.pl  (fasta.list)  (k-mer)  (feature type) >  (output)
 
 Input Arguments:
-<fasta.list>: The list of names of the metagenomic sequencing files. 
-<k-mer>: The length of oligonucleotide that used for extracting sequence feature vectors.
-<feature type>: The type of sequence feature for characterizing the metagenomes. (1 for the sequence composition and 2 for the ICO) 
+(fasta.list): The list of names of the metagenomic sequencing files. 
+(k-mer): The length of oligonucleotide that used for extracting sequence feature vectors.
+(feature type): The type of sequence feature for characterizing the metagenomes. (1 for the sequence composition and 2 for the ICO) 
 
 Output file:
 The output file is a feature matrix whose rows represent the feature vector of metagenomic samples. Its name is defined by users.
