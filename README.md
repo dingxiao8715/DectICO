@@ -22,7 +22,7 @@ DectICO contains mainly three steps:
 Step1: Extract feature matrix of metagenomic sequencing raw data with the entire sequence feature.
 In this step, we provide a perl script to calculate the feature vectors for the metagenomic sequencing raw data. Open the cmd in windows and import:
 
->perl integrate_sample_feature.pl  <fasta.list>  <k-mer>  <feature type>  >  <output>
+>perl integrate_sample_feature.pl  (fasta.list)  (k-mer)  (feature type) >  (output)
 
 Input Arguments:
 <fasta.list>: The list of names of the metagenomic sequencing files. 
