@@ -25,13 +25,15 @@ In this step, we provide a perl script to calculate the feature vectors for the 
 >perl integrate_sample_feature.pl  (fasta.list)  (k-mer)  (feature type) >  (output)
 
 Input Arguments:
-(fasta.list): The list of names of the metagenomic sequencing files. 
+(fasta.list): The list of names of the metagenomic sequencing files.
+
 (k-mer): The length of oligonucleotide that used for extracting sequence feature vectors.
-(feature type): The type of sequence feature for characterizing the metagenomes. (1 for the sequence composition and 2 for the ICO) 
+
+(feature type): The type of sequence feature for characterizing the metagenomes. (1 for the sequence composition and 2 for the ICO)
 
 Output file:
 The output file is a feature matrix whose rows represent the feature vector of metagenomic samples. Its name is defined by users.
-Note: The list file corresponds to the training samples need to show the samples together which are in different states. For example, we assume the training samples contain 5 positive and 5 negative samples respectively, which are defined as . If the positive sample are  , the negative samples have to be   and vice versa.
+
 
 Step2: Select features dynamically and train classifiers with the refined feature matrix.
 In this step, users can use “DectICO” function in Matlab to perform both feature selection and training. Open the Matlab console and import:
@@ -40,7 +42,7 @@ In this step, users can use “DectICO” function in Matlab to perform both fea
 
 Requirement:
 <feature selected ladder file>: A text file named “selection.txt” with the selected feature sizes decreasing from up to bottom. 
-Note: As shown in our experimental results, the selected feature sets with five components had the best classification performances for all kinds of features on the three metagenomic datasets.   is suggested as the minimum of the size of selected feature set. In addition, our feature selection is a dynamic process, the difference of the sizes of the feature sets between adjacent rounds should not be too large. Therefore we suggest that, for a given kind of sequence feature, the initial entire feature set, with size  ,  is refined about half size recursively each round until the size of selected feature set reaches  .
+
 
 Input Arguments:
 <the filename of the training feature maxtrix>: The filename of the training feature matrix extracted in step1.
@@ -63,7 +65,7 @@ Output file:
 The output file is a feature matrix with the selected features.
 
 Second, users can classify the testing samples with the refined feature matrix and the best performed classifier’s model file. 
-Note that, the classification process in DectICO uses the Libsvm software. Therefore the format of input needs to be appropriate. Here, we provide a perl script to perform this process. Open the cmd in windows and import:
+
 
 >perl format_transform_SVM_singlefile_title.pl <testing file>  <parameter>  >  <output>
 
