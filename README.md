@@ -25,6 +25,7 @@ In this step, we provide a perl script to calculate the feature vectors for the 
 >perl integrate_sample_feature.pl  (fasta.list)  (k-mer)  (feature type) >  (output)
 
 Input Arguments:
+
 (fasta.list): The list of names of the metagenomic sequencing files.
 
 (k-mer): The length of oligonucleotide that used for extracting sequence feature vectors.
@@ -41,13 +42,15 @@ In this step, users can use “DectICO” function in Matlab to perform both fea
 >DectICO
 
 Requirement:
-<feature selected ladder file>: A text file named “selection.txt” with the selected feature sizes decreasing from up to bottom. 
+(feature selected ladder file): A text file named “selection.txt” with the selected feature sizes decreasing from up to bottom. 
 
 
 Input Arguments:
-<the filename of the training feature maxtrix>: The filename of the training feature matrix extracted in step1.
-<the number of positive samples>: The number of positive samples in training set.
-<the number of negative samples>: The number of negative samples in training set.
+(the filename of the training feature maxtrix): The filename of the training feature matrix extracted in step1.
+
+(the number of positive samples): The number of positive samples in training set.
+
+(the number of negative samples): The number of negative samples in training set.
 
 Output file:
 The output in this step is a folder named “results” which contains the selected feature set, the LOOCV (leave-one-out cross validation) accuracy and the trained classifier’s model file for each round.
@@ -55,33 +58,44 @@ The output in this step is a folder named “results” which contains the selec
 Step3: Select the best performed classifier and classify the testing samples.
 This step also divides into two processes. First, users need to select the best performed classifier based on the LOOCV accuracies manually. Then we provide a perl script to obtain the refined feature matrix of testing metagenomic samples with the selected feature set file. Open the cmd in windows and import:
 
->perl output_selected_feature_matrix.pl  <feature matrix>  <features selected>  <output>
+>perl output_selected_feature_matrix.pl  (feature matrix)  (features selected)  (output)
 
 Input Arguments:
-<feature matrix>: The feature matrix of metagenomes with the entire features
-<features selected>: The feature set that has the best performance.
-<output>: The name of refined feature matrix with the selected features which is defined by users.
+
+(feature matrix): The feature matrix of metagenomes with the entire features.
+
+(features selected): The feature set that has the best performance.
+
+(output): The name of refined feature matrix with the selected features which is defined by users.
+
 Output file:
 The output file is a feature matrix with the selected features.
 
 Second, users can classify the testing samples with the refined feature matrix and the best performed classifier’s model file. 
 
 
->perl format_transform_SVM_singlefile_title.pl <testing file>  <parameter>  >  <output>
+>perl format_transform_SVM_singlefile_title.pl (testing file)  (parameter)  >  (output)
 
 Input Arguments:
-<testing file>:The feature matrix file that need to transfer format.
-<parameter>: Import 1 or -1 optionally (this argument will be acting for the training set).
+
+(testing file):The feature matrix file that need to transfer format.
+
+(parameter): Import 1 or -1 optionally (this argument will be acting for the training set).
+
 Output file:
+
 The output file is the feature matrix file with the appropriate format for Libsvm.
 
 Then users can classify the testing samples by Libsvm. Open the cmd in windows and import:
 
-> svm-predict.exe  <transformed file>  <model file>  <output>
+> svm-predict.exe  (transformed file)  (model file)  （output）
 
 Input Arguments:
-<transformed file>:The transformed feature matrix file.
-<model file>: The model file of the best performed classifier.
+
+(transformed file):The transformed feature matrix file.
+
+(model file): The model file of the best performed classifier.
+
 Output file:
 The output file is the result of classification.
 
