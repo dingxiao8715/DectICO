@@ -106,6 +106,7 @@ Statement
 The DectICO source builds on the following software:
 
 kernelPLS: https://github.com/sqsun/kernelPLS
+
 Libsvm (3.17): http://www.csie.ntu.edu.tw/~cjlin/libsvm/index.html
 
 
