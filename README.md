@@ -1,22 +1,15 @@
 # DectICO
-An alignment-free supervised metagenomic classification method based on feature extraction and dynamic selection
-
-============
-Introduction
-============
-
-DectICO is an alignment-free supervised metagenomic sample classification algorithm. It selects the ICO dynamically and classifies the metagenomic samples based on the refined ICO vectors with SVM.
-
-====================
-Software Requirement
-====================
-
-We require a Windows or linux system with the Matlab and Perl software. Matlab (R2013a 64-bit) and Perl (v5.16.3 64-bit) were used in our experiments.
-
-=====
-Usage
-=====
-
+ 
+## Introduction   
+  
+DectICO is an alignment-free supervised metagenomic sample classification algorithm. It selects the ICO dynamically and classifies the metagenomic samples based on the refined ICO vectors with SVM.  
+    
+## Software Requirement  
+  
+A Windows or linux system with the Matlab and Perl software is required. Matlab (R2013a 64-bit) and Perl (v5.16.3 64-bit) were used in our experiments.
+  
+## Usage    
+  
 DectICO contains mainly three steps:
 
 Step1: Extract feature matrix of metagenomic sequencing raw data with the entire sequence feature.
@@ -100,9 +93,8 @@ Output file:
 The output file is the result of classification.
 
 
-========
-Statement
-========
+## Statement
+  
 The DectICO source builds on the following software:
 
 kernelPLS: https://github.com/sqsun/kernelPLS
